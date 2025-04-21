@@ -32,6 +32,14 @@ The total loss is a weighted sum of:
 - CrossEntropyLoss: for classification accuracy.
 - MSELoss: for aligning the student’s feature maps with the teacher's:
 
+$$ \mathcal{L}_{\text{total}} = \lambda_{\text{feature}} \cdot \text{MSE}(F_s, F_t) + \lambda_{\text{CE}} \cdot \text{CE}(y_s, y) $$
+
+Where:
+
+- *F<sub>s</sub>*, *F<sub>t</sub>* are student and teacher feature maps
+- *y<sub>s</sub>* are student logits, *y* are ground truth labels
+- *λ<sub>feature</sub>* = 0.25 ; *λ<sub>CE</sub>* = 0.75
+
 ## 📈 Evaluation Metrics
 - Validation Accuracy & Loss (per epoch)
 - Test Accuracy & Loss
